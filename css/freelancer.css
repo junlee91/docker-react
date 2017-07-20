@@ -19,7 +19,6 @@ a:focus,
 a:active,
 a.active {
   color: #2C3E50;
-  border-radius: 8px;
 }
 h1,
 h2,
