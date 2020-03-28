@@ -1,0 +1,16 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t junlee3081/react-test -f ./client/Dockerfile.dev .
+
+script:
+  - docker run -e CI=true junlee3081/react-test npm test
+
+after_success:
+  - docker build -t junlee3081/multi-client ./client
+  - docker build -t junlee3081/multi-nginx ./nginx
+  - docker build -t junlee3081/multi-server ./server
+  - docker build -t junlee3081/multi-worker ./worker
