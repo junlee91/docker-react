@@ -33,10 +33,10 @@ services:
   client:
     build:
       dockerfile: Dockerfile.dev
-      context: ./client
+      context: ./react-client
     volumes:
       - /app/node_modules
-      - ./client:/app
+      - ./react-client:/app
   worker:
     build:
       dockerfile: Dockerfile.dev
